@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  
   "scripts": {
     "start": "tsx app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +17,9 @@
     "@opentelemetry/sdk-node": "^0.219.0",
     "@opentelemetry/semantic-conventions": "^1.41.1",
     "@types/express": "^5.0.6",
+    "dotenv": "^8.2.0",
     "express": "^5.2.1",
+    "node-fetch": "^3.3.2",
     "winston": "^3.19.0"
   },
   "devDependencies": {
