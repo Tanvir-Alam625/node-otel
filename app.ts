@@ -1,11 +1,14 @@
 import { trace } from "@opentelemetry/api";
-import { rollTheDice } from "./dice";
+import { rollTheDice } from "./dice.js";
 
 import express, {type Express} from 'express'
 import winston from 'winston';
 const app: Express = express();
 const port = 3030;
-export const logger = winston.createLogger();
+export const logger = winston.createLogger({
+    level: 'info',
+    transports: [new winston.transports.Console()],
+});
 
 const tracer = trace.getTracer('dice-server', '1.0.0');
 
