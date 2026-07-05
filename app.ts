@@ -17,9 +17,13 @@ app.get('/rolldice', (req, res) => {
    const rolls = req.query.rolls ? parseInt(req.query.rolls as string) : NaN;
    if(isNaN(rolls)){
     logger.error(`[NODE-OTEL]: Invalid rolls query parameter: ${req.query.rolls}`);
-    return res.status(400).send('Invalid rolls query parameter');   
+    return res.status(400).send('APP:[1]:Invalid rolls query parameter');   
 }   
-res.send(JSON.stringify(rollTheDice(rolls, 1, 6)));
+const getRolls = rollTheDice(rolls, 1, 6);
+res.send(JSON.stringify({
+    rolls: getRolls,
+    from : "APP:[1]"
+}));
 });
 
 app.listen(port, '0.0.0.0', () => {
